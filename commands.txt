@@ -1,0 +1,20 @@
+Ο φάκελος της εφαρμογής αναφέρεται στον φάκελο που υποβάλλεται, δηλαδή στον /el18410_ΣΤΥΛΟΣ_ΑΛΕΞΑΝΔΡΟΣ_ΠΑΝΑΓΙΩΤΗΣ.
+
+Χρειάζονται οι βιβλιοθήκες για τη JavaFX και το GSON που δεν συμπεριλήφθηκαν στο φάκελο της εφαρμογής εκ των προτέρων λόγω του περιορισμού του Helios στο μέγεθος του αρχείου που 
+δύναται να υποβληθεί. 
+Η λήψη αυτών των βιβλιοθηκών μπορεί να γίνει με δύο εναλλακτικούς τρόπους:
+1) Αυτόματα ανοίγοντας το Powershell στο φάκελο της εφαρμογής και τρέχοντας την εντολή git clone https://github.com/alexandrosst/libraries, οπότε προκύπτει ο υποφάκελος libraries.
+2) Χειροκίνητα με κατέβασμα από το OneDrive. Στο φάκελο της εφαρμογής δημιουργούμε έναν υποφάκελο με όνομα "libraries" (αυστηρά αυτό το όνομα). 
+Mέσα στον υποφάκελο libraries κατεβάζουμε το περιεχόμενο του συνδέσμου https://1drv.ms/u/s!Ank6sd7gd5yQmGqYReYiutqmQq4O?e=264rzY
+
+Εν τέλει, εμφανίζεται ο υποφάκελος libraries που πρέπει να περιέχει τους υποφακέλους JavaFX και Gson.
+
+Αφού γίνουν αυτά, ανοίγουμε το Powershell στο φάκελο της εφαρμογής και μπορούμε να τρέξουμε τις παρακάτω εντολές:
+Compile command:
+javac -d . -cp ".;libraries/Gson/gson-2.8.9.jar" --module-path "./libraries/JavaFX/lib" --add-modules javafx.controls,javafx.fxml *.java
+
+Execute command:
+java -cp ".;libraries/Gson/gson-2.8.9.jar" --module-path "./libraries/JavaFX/lib" --add-modules javafx.controls,javafx.fxml Main
+
+Javadoc command:
+javadoc -d ./RoundClassDocumentation -author --module-path "./libraries/JavaFX/lib" --add-modules javafx.controls,javafx.fxml Rounds.java
